@@ -1,0 +1,22 @@
+{
+    "dir": "ltr",
+    "lang": "en",
+    "name": "Mr Mohammed Musaib",
+    "scope": "/",
+    "display": "standalone",
+    "start_url": "http://portfolio-musaib.herokuapp.com/",
+    "short_name": "Mr Mohammed Musaib",
+    "theme_color": "transparent",
+    "description": "",
+    "orientation": "any",
+    "background_color": "transparent",
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "/images/images/icon.png",
+            "type": "image/png",
+            "sizes": "80x80"
+        }
+    ]
+}

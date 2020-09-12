@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <title>Ajax LiveSearch using PHP and MySQL</title>
+	<link rel="icon" href="icon.png">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script>
+      function LiveSearch(){
+        $("#result").empty();
+        if(!document.getElementById("test").value==''){
+    $.ajax({
+      url:'search.php?key='+document.getElementById("test").value,
+      type:'get',
+      success:function(res){
+        console.log(res);
+        for(var i of JSON.parse(res)){
+           html="<ul class='list-group'><li class='list-group-item list-group-item-info'><a href='#' onclick='placeItem(this)'>"+i.name+"</a></li></ul>";
+          document.getElementById("result").innerHTML+=html;
+        }
+        
+      }
+    });
+}
+}
+  function placeItem(item){
+    document.getElementById("test").value=item.innerText;
+    window.location.reload()
+  }
+
+    </script>
+     <style type="text/css" >
+span{
+    background-color:whitesmoke;
+    cursor: pointer;
+  }
+  a {
+    display:block;
+    text-decoration:none; 
+    cursor: pointer;
+    padding:5px;
+}
+
+ul{
+/*removing predefined bullet points from list*/
+    list-style:none;
+/*removing padding from list items*/
+    padding:0;
+     width:605px;
+}
+ul li{
+    margin-bottom:30px;
+}
+/*adding effect when the mouse is hovered over list item*/
+ ul li a:hover{
+    color:#b23b61;
+    background:#ecd1da;
+}
+/*moving it slightly toware right when hovered*/
+ul li:hover{
+/*transform*/
+-webkit-transform:translateX(20px);
+   -moz-transform:translateX(20px);
+    -ms-transform:translateX(20px);
+     -o-transform:translateX(20px);
+        transform:translateX(20px);
+}
+/*now first we will hide the suggestion list*/
+.suggestions li{
+    
+    height:0;
+    -webkit-transition:all 0.3s ease-in-out;
+   -moz-transition:all 0.3s ease-in-out;
+     -o-transition:all 0.3s ease-in-out;
+        transition:all 0.3s ease-in-out;
+}
+
+      
+    </style>
+  </head>
+  <body >
+  <div class="row">
+  <div class="col-md-6">
+  <div class="form-group has-search">
+    <input type="text" name="result" class="form-control" id="test" placeholder="Type your Query" onkeyup="LiveSearch()">
+        <div id="result">
+  </div>
+  </div>
+  </div>
+  </div>
+        
+  </body>
+</html>

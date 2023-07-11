@@ -78,7 +78,7 @@ $(function () {
     /**  Start Typed
      **====================== **/
     $(".kayo-work").typed({
-        strings: ["Web Developer (React, Laravel)","Full Stack (MERN)"],
+        strings: ["Web Developer (React, Angular)","MERN Stack Developer","Problem Solver", "Laravel Developer"],
         cursorChar: "",
         typeSpeed: 50,
         loop: true,
